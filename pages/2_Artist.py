@@ -13,6 +13,8 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 tab1, tab2 = st.tabs(["Top Artist", "Top Songs"])
 with tab1:
+    st.title("Greatest artists along the years")
+
     # Obtener los años únicos en el dataset
     unique_years = sorted(data['year'].unique())
     unique_years.remove(1998)
@@ -28,18 +30,19 @@ with tab1:
     filtered_df = data[(data['year'] >= start_year) & (data['year'] <= end_year)]
 
     # Obtener el top N de actores populares
-    top_actors = filtered_df.groupby('artist')['popularity'].mean().nlargest(top_n)
+    top_actors = filtered_df.groupby('artist')['popularity'].mean().nlargest(top_n).reset_index()
 
-    # Crear el diagrama de barras
-    plt.figure(figsize=(12, 6))
-    sns.barplot(x=top_actors.values, y=top_actors.index, palette='viridis')
-    plt.xlabel('Popularity')
-    plt.ylabel('Name of the artist')
-    plt.title(f'Top {top_n} Popular Artist between ({start_year}-{end_year})')
-    st.pyplot()
+    # Crear el diagrama de barras con Plotly
+    fig = px.bar(top_actors, x='popularity', y='artist', orientation='h', color='popularity',
+                color_continuous_scale='viridis', title=f'Top {top_n} Popular Artist between ({start_year}-{end_year})',
+                category_orders={'artist': top_actors['artist'].values[::]})
+    # Mostrar el gráfico utilizando Streamlit
+    st.plotly_chart(fig)
+
     
 
 with tab2:
+    st.title("How many songs an artist has?")
         # Obtener los 10 actores más populares
     top_actors = data['artist'].value_counts().nlargest(10)
 

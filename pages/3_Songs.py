@@ -11,12 +11,13 @@ data=pd.read_csv("dataviz.csv")
 st.set_page_config(page_title="Songs&Genre", page_icon="🎧")
 tab1, tab2 = st.tabs(["Songs by duration", "Top 5 genre"])
 with tab1:
+    st.title("People prefer long or short songs?")
     # Obtener el rango de duración en minutos
     min_duration = int(data['duration_min'].min())  # Convertir a entero
     max_duration = int(data['duration_min'].max())  # Convertir a entero
 
     # Obtener los valores mínimo y máximo seleccionados por el usuario usando un slider con dos handles
-    selected_duration_range = st.slider('Seleccionar rango de duración en minutos', min_value=min_duration, max_value=max_duration, value=(min_duration, max_duration))
+    selected_duration_range = st.slider('Select a range of duration in minutes', min_value=min_duration, max_value=max_duration, value=(min_duration, max_duration))
 
     # Obtener el valor mínimo y máximo del rango seleccionado
     selected_min_duration = selected_duration_range[0]
@@ -39,15 +40,15 @@ with tab1:
     # Crear el gráfico de dispersión utilizando Plotly
     fig = px.scatter(songs_count_by_year, x='year', y='Count', size='Count', size_max=size_scale)
     fig.update_traces(marker=dict(color='steelblue', line=dict(color='white', width=0.5)))
-    fig.update_layout(title='Número de canciones por año',
-                    xaxis_title='Año',
-                    yaxis_title='Número de canciones')
+    fig.update_layout(title='Number of songs per year',
+                    xaxis_title='Year',
+                    yaxis_title='Number of songs')
 
     # Mostrar el gráfico interactivo utilizando st.plotly_chart
     st.plotly_chart(fig)
 with tab2:
         # Add a title
-    st.title("Top Genres of Songs")
+    st.title("Is your favorite genre in the list?")
 
     # Agregar un selectbox para seleccionar el año
     unique_years = sorted(data['year'].unique())

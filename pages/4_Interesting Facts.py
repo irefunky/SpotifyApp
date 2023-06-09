@@ -9,7 +9,7 @@ import seaborn as sns
 
 data=pd.read_csv("dataviz.csv")
 st.set_page_config(page_title="Interesting Facts", page_icon="🔍")
-
+st.title('Being elicit is related with popularity?')
 # Obtener los géneros únicos en el dataset
 unique_genres = data['genre'].unique()
 
@@ -29,7 +29,7 @@ fig = px.bar(explicit_counts, x=explicit_counts.index, y=explicit_counts.values)
 fig.update_layout(
     xaxis=dict(title='Explicit', tickmode='array', tickvals=[0, 1], ticktext=['NO', 'YES']),
     yaxis=dict(title='Number of songs'),
-    title=f'Distribution of songs explicit or implicit for  ({selected_genre})'
+    title=f'Distribution of explicit or implicit songs for  ({selected_genre})'
 )
 
 # Mostrar el gráfico interactivo utilizando st.plotly_chart

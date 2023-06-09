@@ -15,16 +15,17 @@ st.write("# Welcome to our Spotify Analysis! 🎶")
 
 st.markdown(
         """
-        In this app you can find different information about artist and songs that were in Spotify. 
-        This dataset is based in some characteristics that will help us to know more about songs, 
-        the most common genre, its popularity, etc.
+        Get ready to get a closer look on your favorite artists and their songs. 
+        This dataset containing the 2000 most popular songs in the history of Spotify 
+        will give you all your answers.
+        
 
 
-        **👈 Select a visualization from the dropdown on the left** to see some examples!
+        **👈 Look at the dropdown menu on the left** and feel free to navigate through all of them!
 
-        ### Want to know what we are talking about?
+        Want to know what we are talking about?
 
-        - Check the introduction page and then you will have more information of the type of data we are working with 
+        Check the introduction page and then you will have more information of the type of data we are working with 
 
         ### Enjoy your analysis!!🤗""" )
 
