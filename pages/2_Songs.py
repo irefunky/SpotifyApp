@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data=pd.read_csv("C:/Users/irefu/OneDrive/Documentos/SpotifyApp/dataviz.csv")
+data=pd.read_csv("dataviz.csv")
 st.set_page_config(page_title="Songs&Genre", page_icon="🎧")
 tab1, tab2 = st.tabs(["Songs by duration", "Top 5 genre"])
 with tab1:

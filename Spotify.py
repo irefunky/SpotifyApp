@@ -6,7 +6,7 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 
-data=pd.read_csv("C:/Users/irefu/OneDrive/Documentos/apppython/dataviz.csv")
+data=pd.read_csv("dataviz.csv")
 st.set_page_config(page_title="Spotify", page_icon="🎶")
 #st.sidebar.image("C:/Users/irefu/OneDrive/Documentos/SpotifyApp/logo.jpeg", use_column_width=True)
 st.image("logo.png", width=100)

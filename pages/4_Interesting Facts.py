@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-data=pd.read_csv("C:/Users/irefu/OneDrive/Documentos/SpotifyApp/dataviz.csv")
+data=pd.read_csv("dataviz.csv")
 st.set_page_config(page_title="Interesting Facts", page_icon="🔍")
 
 # Obtener los géneros únicos en el dataset
